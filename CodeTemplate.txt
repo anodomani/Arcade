@@ -2,26 +2,59 @@ CODE TEMPLATE:
 //This is a single line comment (notes that won't be read as instructions to the computer).
 //Different syntax is used for comments depending on the language.
 
-//CHANGE ME: Add the title of your game
-//CHANGE ME: Add your name
+//CHANGE ME: Cookie Clicker
+//CHANGE ME: Arthur Dale
 
+public List<Upgrade> boughtUpgrades = new List<Upgrade>();
+public int cookiesInBank;
+public float bigCookieClickValueMod;
+public float cookiesPerSecond;
+public int GoldenCookieCooldown;
+public int GoldenCookieRarity;
+public GameObject GoldenCookieGameObject;
 
-if (CHANGE ME: condition # 1) {
-    //Add event below
-} else {
-    //Add event below
+void Update () {
+    bigCookieClickValueMod = 0;
+    cookiesPerSecond
+
+    if (input.mouse1 == true) {
+        if (mouse.interactingWith = BigCookie) {
+            cookiesInBank += 1 * bigCookieClickValueMod;
+            bigCookieClicks++;
+        } else if (mouse.interactingWith = upgrade && mouse.interactingWith.price <= cookiesInBank) {
+            IncrementCookies(-mouse.interactingWith.price);
+            boughtUpgrades.Add(mouse.interactingWith);
+        } else if (mouse.interactingWith = building && mouse.interactingWith.price <= cookiesInBank) {
+            mouse.interactingWith.amountOwned++;
+        }
+    }
+
+    if (boughtUpgrades > 0) {
+        for (int i; i < boughtUpgrades.Count; i++) {
+            bigCookieClickValueMod += boughtUpgrades[i].CPCMod;
+            cookiesPerSecond += boughtUpgrades[i].CPSMod;
+        }
+    }
+
+    if (GoldenCookieCooldown > GoldenCookieCooldownViable && Random.Range(0, 100) > GoldenCookieRarity) {
+        newG = Instantiate(GoldenCookieGameObject);
+        cookieType = Random.Range(0, 100);
+        if (random.Range > 90) {
+            newG.GetComponent<GoldenCookieBehaviour>().Type = clickFrenzy;
+        } else if (random.Range > 60) {
+            newG.GetComponent<GoldenCookieBehaviour>().Type = lucky;
+        } else if (random.Range > 30) {
+            newG.GetComponent<GoldenCookieBehaviour>().Type = buildingBoost;
+        } else if (random.Range > 20) {
+            newG.GetComponent<GoldenCookieBehaviour>().Type = frenzy;
+        } else if (random.Range > 1) {
+            newG.GetComponent<GoldenCookieBehaviour>().Type = cookieStorm;
+        } else {
+            newG.GetComponent<GoldenCookieBehaviour>().Type = blab;
+        }
+        GoldenCookieCooldown = 0;
+    } else {
+        GoldenCookieCooldown++;
+    }
+
 }
-
-if (CHANGE ME: condition # 2) {
-    //Add event below
-} else {
-    //Add event below
-}
-
-if (CHANGE ME: condition # 3) {
-    //Add event below
-} else {
-    //Add event below
-}
-
-
