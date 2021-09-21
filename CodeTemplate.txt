@@ -56,5 +56,4 @@ void Update () {
     } else {
         GoldenCookieCooldown++;
     }
-
 }
